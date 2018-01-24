@@ -7,18 +7,26 @@
 Public Class frmDemo2DArrays
 
     ' Class Level Constants
-    Private Const numberColumnLastIndex As Integer = 1  ' what is the last column index for the 2d array
-    Private Const numberRowLastIndex As Integer = 2     ' what is the last row index for the 2d array
-
+    Private Const lastRowIndex As Integer = 2     ' what is the last row index for the 2d array
+    Private Const lastColumnIndex As Integer = 1  ' what is the last column index for the 2d array
 
     ' Class Level Variabl3
     ' 2 dimensional array
     ' 2 columns = 1
     ' 3 rows = 2
-    Private numberArray(numberRowLastIndex, numberColumnLastIndex) As Double
+    Private numberArray(lastRowIndex, lastColumnIndex) As Double
 
-    Private currentColumnIndex As Integer = 0  ' used to maintain the current row index
+    '    C   C
+    ' R  1 - 2
+    ' R  3 - 4
+    ' R  5 - 6
+    ' Row Length - 3
+    ' Row Last Index - 2 (0,1,2)
+    ' Column Length - 2
+    ' Column Last Index - 1 (0,1)
+
     Private currentRowIndex As Integer = 0     ' used to maintain the current row index
+    Private currentColumnIndex As Integer = 0  ' used to maintain the current column index
 
     ''' <summary>
     ''' btnEnter_Click - enters the number into the 2D array. The location is depends upon the number of times the user has entered
@@ -36,7 +44,10 @@ Public Class frmDemo2DArrays
         ' if the row lindex is less than the last index
         ' and the column counter is the last column
         ' move to the next row and reset the column to the start
-        If currentRowIndex < numberRowLastIndex And currentColumnIndex = numberColumnLastIndex Then
+        ' 1   (0,0)          2 (0,1)
+        ' 3   (1,0)          4 (1,1)
+        ' 5   (2,0)          6 (2,1)
+        If currentRowIndex < lastRowIndex And currentColumnIndex = lastColumnIndex Then
 
             'move to the next row
             currentRowIndex += 1
@@ -48,7 +59,7 @@ Public Class frmDemo2DArrays
             '' to move to the next row
             'lbOutput.Text += vbCrLf
 
-        ElseIf currentRowIndex = numberRowLastIndex And currentColumnIndex = numberColumnLastIndex Then
+        ElseIf currentRowIndex = lastRowIndex And currentColumnIndex = lastColumnIndex Then
             ' if this is the last row and last index
 
             ' disable the control so the user
@@ -80,6 +91,8 @@ Public Class frmDemo2DArrays
         ' clear the output box 
         ' to display the new values
         lbOutput.Text = String.Empty
+
+        'arrayParameter(0, 0) = 50
 
         ' loop through all the rows
         For rowIndex As Integer = 0 To arrayParameter.GetLength(0) - 1 ' this looks at the length of the 1st dimension or the row index
