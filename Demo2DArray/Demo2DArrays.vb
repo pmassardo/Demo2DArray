@@ -161,4 +161,17 @@ Public Class frmDemo2DArrays
         ResetForm(numberArray)
 
     End Sub
+
+    ''' <summary>
+    ''' btnExit_Click - Will close the form
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
+
+        ' Close the form
+        Me.Close()
+
+    End Sub
+
 End Class
